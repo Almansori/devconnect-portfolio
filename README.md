@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevConnect | Developer Portfolio Hub</title>
-  <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 <body class="bg-gray-900 text-white">
   <header class="bg-gray-800 p-6 shadow-md">
