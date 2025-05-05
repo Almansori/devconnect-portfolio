@@ -1,1 +1,99 @@
 # devconnect-portfolio
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevConnect | Developer Portfolio Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+  <header class="bg-gray-800 p-6 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-400">DevConnect</h1>
+      <nav>
+        <a href="#features" class="ml-4 text-white hover:text-blue-300">Features</a>
+        <a href="#projects" class="ml-4 text-white hover:text-blue-300">Projects</a>
+        <a href="#submit" class="ml-4 text-white hover:text-blue-300">Submit Project</a>
+        <a href="#contact" class="ml-4 text-white hover:text-blue-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="text-center py-20 px-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+    <h2 class="text-4xl font-bold mb-4">Showcase Your Skills. Connect with Devs.</h2>
+    <p class="text-lg text-gray-300 mb-6">Build your developer profile, share your projects, and grow your network.</p>
+    <a href="#submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition">Submit a Project</a>
+  </section>
+
+  <section id="features" class="py-16 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-10 text-center">
+      <div>
+        <h3 class="text-xl font-semibold mb-2">👨‍💻 Developer Profiles</h3>
+        <p class="text-gray-400">Create and personalize your developer card with skills, tools, and social links.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-2">🚀 Project Showcases</h3>
+        <p class="text-gray-400">Upload and share your projects with live demos and GitHub repos.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-2">🌐 Community Feed</h3>
+        <p class="text-gray-400">Explore other developers' work, follow them, and get inspired.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-16 px-6 bg-gray-800">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-blue-400">Featured Projects</h2>
+      <p class="text-gray-300 mt-2">A glimpse into what our community is building.</p>
+    </div>
+    <div id="project-list" class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <!-- Dynamic projects will appear here -->
+    </div>
+  </section>
+
+  <section id="submit" class="py-16 px-6">
+    <div class="max-w-xl mx-auto bg-gray-800 p-8 rounded-lg shadow">
+      <h3 class="text-2xl font-bold text-center text-blue-400 mb-6">Submit Your Project</h3>
+      <form id="project-form" class="space-y-4">
+        <input type="text" id="title" placeholder="Project Title" class="w-full p-2 rounded bg-gray-700 text-white" required />
+        <textarea id="description" placeholder="Project Description" class="w-full p-2 rounded bg-gray-700 text-white" rows="4" required></textarea>
+        <input type="url" id="link" placeholder="Live URL or GitHub Link" class="w-full p-2 rounded bg-gray-700 text-white" required />
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded text-white font-semibold w-full">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <footer id="contact" class="bg-gray-900 py-10 px-6 text-center">
+    <h3 class="text-xl font-semibold mb-2">Let's Connect</h3>
+    <p class="text-gray-400 mb-4">Reach out if you're interested in collaboration or feedback.</p>
+    <p class="text-gray-500">© 2025 DevConnect. Built with ❤️ by Mohammed Almansori</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('project-form');
+    const projectList = document.getElementById('project-list');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const link = document.getElementById('link').value;
+
+      const card = document.createElement('div');
+      card.className = "bg-gray-700 p-6 rounded-lg shadow hover:shadow-xl transition";
+      card.innerHTML = `
+        <h4 class="text-xl font-bold mb-2">${title}</h4>
+        <p class="text-gray-400 text-sm mb-4">${description}</p>
+        <a href="${link}" target="_blank" class="text-blue-300 hover:underline">View Project →</a>
+      `;
+
+      projectList.prepend(card);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
